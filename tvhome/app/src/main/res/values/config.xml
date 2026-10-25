@@ -1,0 +1,29 @@
+<resources>
+    <!-- Number of dock slots AND grid columns -->
+    <integer name="columns">5</integer>
+
+    <!-- Dock apps, left to right (package names) -->
+    <string-array name="dock_apps">
+        <item>com.google.android.youtube.tv</item>
+        <item>org.smarttube.beta</item>
+        <item>in.startv.hotstar</item>
+        <item>app.netmirror.newtv</item>
+        <item>com.mxtech.videoplayer.ad</item>
+    </string-array>
+
+    <!-- Grid apps, in order. Any other launchable app is added after these. -->
+    <string-array name="grid_apps">
+        <item>com.adguard.android</item>
+        <item>com.android.vending</item>
+        <item>org.localsend.localsend_app</item>
+        <item>com.spotify.tv.android</item>
+        <item>com.internet.tvbrowser</item>
+        <item>com.graymatrix.did</item>
+        <item>com.lagradost.cloudstream3.prerelease</item>
+    </string-array>
+
+    <!-- Apps never shown in the grid -->
+    <string-array name="hidden_apps">
+        <item>com.google.android.youtube.tvmusic</item>
+    </string-array>
+</resources>
