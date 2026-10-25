@@ -1,0 +1,26 @@
+name: build
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.5'
+      - name: Fetch Outfit font (optional)
+        run: |
+          mkdir -p tvhome/app/src/main/assets/fonts
+          curl -fsSL -o tvhome/app/src/main/assets/fonts/Outfit.ttf "https://github.com/google/fonts/raw/main/ofl/outfit/Outfit%5Bwght%5D.ttf" || true
+      - name: Build
+        run: gradle assembleDebug --no-daemon -p tvhome
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tvhome-apk
+          path: tvhome/app/build/outputs/apk/debug/app-debug.apk
